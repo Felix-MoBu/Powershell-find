@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!--
+
+Für korrekte Darstellung Datei im Webbrowser öffnen!
+
+-->
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>ReadMe "find" by Felix MoBu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 50%;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #ff0000;
+            text-align: center;
+        }
+        h2 {
+            color: #FE6A00;
+        }
+        pre {
+            background-color: darkblue;
+            color: lightgray;
+            padding: 10px;
+            overflow-x: auto;
+            border-radius: 10px;
+        }
+        code {
+            font-family: Consolas, monospace;
+
+        }
+        ol, ul {
+            padding-left: 40px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>PowerShell-Skript <i>"find"</i> von Felix MoBu</h1>
+    <p>Das PowerShell-Skript mit dem Namen "find" ermöglicht es, Dateien in einem Verzeichnisbaum basierend auf einem Suchbegriff zu finden. Es bietet auch Optionen, um die Suche auf bestimmte Weise anzupassen und ermöglicht das Filtern nach Dateitypen.</p>
+    <h2>Installation:</h2>
+    <p>Das Script "find.ps1" kann auch ohne installation gestartet werden, muss aber immer in den jeweiligen Ordner kopiert werden.</p>
+    <ol>
+        <li>Das zweite mitgelieferte Script "<i>install.ps1</i>" starten.</li>
+        <li>Das gestartete Fenster gibt auskunft über Erfolg und Misserfolg der Installation.</li>
+        <li>Suche ausführen, indem der Aufruf "find" gefolgt von den entsprechenden Parametern eingeben eingegeben wird.</li>
+    </ol>
+    <h2>Parameter:</h2>
+    <p>Wenn der Suchbegriff als erstes steht, kann "<i>-Search</i>" weg gelassen werden.</p>
+    <ul>
+        <li><strong>-Search (Erforderlich):</strong> Suchbegriff der in den Dateien gefunden werden soll.</li>
+        <li><strong>-NoRecurse (Optional):</strong> Parameter verwenden, um Unterverzeichnisse aus der Suche aus zu schließen.</li>
+        <li><strong>-UseRegEx (Optional):</strong> Parameter verwenden, um den Suchbegriff als Regular Expression zu interpretieren.</li>
+        <li><strong>-Filter (Optional):</strong> Parameter verwenden, um nach bestimmten Dateitypen zu filtern.</li>
+    </ul>
+    <h2>Beispiele:</h2>
+    <pre><code>find -Search "example"   <--ist genau wie-->   find "example"
+
+find "pattern" -NoRecurse -Filter "*.txt"
+
+find "^\d{3}-\d{2}-\d{4}$" -UseRegEx -Filter "*.csv"</code></pre>
+    <h2>Ergebnis:</h2>
+    <p>Nachdem das Skript ausgeführt wurde, werden die Dateipfade der gefundenen Dateien angezeigt.</p>
+</body>
+</html>
