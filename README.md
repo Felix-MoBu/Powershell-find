@@ -1,6 +1,6 @@
 # PowerShell-Skript "find" von Felix-MoBu
 
-Das PowerShell-Skript mit dem Namen "find" ermöglicht es, Dateien in einem Verzeichnisbaum basierend auf einem Suchbegriff zu finden. Es bietet auch Optionen, um die Suche auf bestimmte Weise anzupassen und ermöglicht das Filtern nach Dateitypen.
+Das PowerShell-Skript mit dem Namen "find" ermöglicht es, Dateien anhand ihres Inhaltes in einem Verzeichnisbaum basierend auf einem Suchbegriff zu finden. Es bietet auch Optionen, um die Suche auf bestimmte Weise anzupassen und ermöglicht das Filtern nach Dateitypen.
 
 ## Installation
 
