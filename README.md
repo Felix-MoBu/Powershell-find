@@ -18,13 +18,13 @@ Wenn der Suchbegriff als erstes steht, kann "-Search" weggelassen werden.
 - **-NoRecurse (Optional):** Parameter verwenden, um Unterverzeichnisse aus der Suche auszuschließen.
 - **-UseRegEx (Optional):** Parameter verwenden, um den Suchbegriff als Regular Expression zu interpretieren.
 - **-Filter (Optional):** Parameter verwenden, um nach bestimmten Dateitypen zu filtern.
-
+- **-NoPath** Parameter verwenden, um nur Dateinamen ohne Pfadangabe aufzulisten.
 ## Beispiele
 
 ```
 find -Search "example" <--ist genau wie--> find "example"
 
-find "pattern" -NoRecurse -Filter "*.txt"
+find "pattern" -NoRecurse -Filter "*.txt" -NoPath
 
 find "^\d{3}-\d{2}-\d{4}$" -UseRegEx -Filter "*.csv"
 ```

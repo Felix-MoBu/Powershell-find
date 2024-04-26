@@ -21,20 +21,17 @@ function find {
     } else{
         $escapedSearch = [Regex]::Escape($Search)
     }
+
+    if ($noPath)
+    {
+        $listStyle = "FileName"
+    } else {
+        $listStyle = "Path"
+    }
     
     if ($NoRecurse) {
-        if ($NoPath)
-        {
-            Get-Childitem -filter $Filter | Select-String -Pattern $escapedSearch -ErrorAction SilentlyContinue | Select-Object FileName -Unique             
-        } else {
-            Get-Childitem -filter $Filter | Select-String -Pattern $escapedSearch -ErrorAction SilentlyContinue | Select-Object Path -Unique 
-        }
+        Get-Childitem -filter $Filter | Select-String -Pattern $escapedSearch -ErrorAction SilentlyContinue | Select-Object $listStyle -Unique 
     } else {
-        if ($NoPath)
-        {
-            Get-Childitem -filter $Filter -Recurse | Select-String -Pattern $escapedSearch -ErrorAction SilentlyContinue | Select-Object FileName -Unique    
-        } else {
-            Get-Childitem -filter $Filter -Recurse | Select-String -Pattern $escapedSearch -ErrorAction SilentlyContinue | Select-Object Path -Unique
-        }
+        Get-Childitem -filter $Filter -Recurse | Select-String -Pattern $escapedSearch -ErrorAction SilentlyContinue | Select-Object $listStyle -Unique
     }
 }
