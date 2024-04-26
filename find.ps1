@@ -3,14 +3,17 @@ function find {
         [Parameter(Mandatory)]
         [string]$Search,
 
-        [Parameter(HelpMessage="Don't include subdirectorys")]
+        [Parameter(HelpMessage="Don't include sub directories")]
         [switch]$NoRecurse = $false,
 
         [Parameter(HelpMessage="Interprets the search term as regular expression")]
         [switch]$UseRegEx = $false,
 
-        [Parameter(HelpMessage="Definde filet type filters here")]
-        [string]$Filter = "*.*"
+        [Parameter(HelpMessage="Definde file type filters here")]
+        [string]$Filter = "*.*",
+
+        [Parameter(HelpMessage="Show only file names, no paths")]
+        [switch]$NoPath
         )
 
     if ($UseRegEx) {
@@ -20,8 +23,18 @@ function find {
     }
     
     if ($NoRecurse) {
-        Get-Childitem -filter $Filter | Select-String -Pattern $escapedSearch -ErrorAction SilentlyContinue | Select-Object Path -Unique
+        if ($NoPath)
+        {
+            Get-Childitem -filter $Filter | Select-String -Pattern $escapedSearch -ErrorAction SilentlyContinue | Select-Object FileName -Unique             
+        } else {
+            Get-Childitem -filter $Filter | Select-String -Pattern $escapedSearch -ErrorAction SilentlyContinue | Select-Object Path -Unique 
+        }
     } else {
-        Get-Childitem -filter $Filter -Recurse | Select-String -Pattern $escapedSearch -ErrorAction SilentlyContinue | Select-Object Path -Unique
+        if ($NoPath)
+        {
+            Get-Childitem -filter $Filter -Recurse | Select-String -Pattern $escapedSearch -ErrorAction SilentlyContinue | Select-Object FileName -Unique    
+        } else {
+            Get-Childitem -filter $Filter -Recurse | Select-String -Pattern $escapedSearch -ErrorAction SilentlyContinue | Select-Object Path -Unique
+        }
     }
 }
